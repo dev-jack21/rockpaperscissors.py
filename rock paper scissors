@@ -1,0 +1,42 @@
+import random
+
+user_wins = 0
+comp_wins = 0
+draws = 0
+
+options = ["rock",  "paper", "scissors"] // the three options
+
+
+while True:
+    user_turn = input("type in rock / paper/scissors/ q to quit ").lower()
+    if user_turn == 'q':
+        break
+    if user_turn not in options:
+        print("please key in a valid input")
+        continue
+
+    random_number = random.randint(a=0, b=2)
+    # 0 = rock, 1 = paper, 2 = scissor
+    comp_turn = options[random_number]
+    print("computer picked ,", comp_turn + '.')
+    if user_turn == "paper" and comp_turn == 'rock':
+        print("you won!")
+        user_wins +=1
+    elif user_turn == "scissors" and comp_turn == 'paper':
+        print("you  won!")
+        user_wins += 1
+    elif user_turn == "rock" and comp_turn == 'scissors':
+        print("you  won!")
+        user_wins += 1
+    elif user_turn == comp_turn:
+        print(f"you both chose {user_turn} its a tie")
+        draws += 1
+    else:
+        print("you lost ")
+        comp_wins += 1
+
+print("you won", user_wins, "times")
+print("comp  won", comp_wins, "times")
+print("you tied", draws, "times")
+print("thanks  for playing, goodbye!")
+
